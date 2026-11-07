@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "apps": [
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "tagline": "Your films and shows, streamed to every screen.",
+      "description": "Jellyfin organises the films, shows and music in your media folder, with posters and details, and plays them in a browser, on phones and on TVs. It only reads your media, never changes it. Its library and settings are kept in its own folder, and its cache in memory, to spare the SD card.",
+      "category": "media",
+      "icon": "film",
+      "logo": "logos/jellyfin.png",
+      "website": "https://jellyfin.org",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 1536 }],
+      "form": {
+        "source": "jellyfin/jellyfin",
+        "port": 8096,
+        "app_port": 8096,
+        "reachable": true,
+        "settings": { "JELLYFIN_LOG_DIR": "/logs" },
+        "folders": [
+          { "from": "config", "to": "/config" },
+          { "from": "/srv/media", "to": "/media", "read_only": true },
+          { "from": "memory", "to": "/cache", "size_mb": 2200 },
+          { "from": "memory", "to": "/logs", "size_mb": 64 }
+        ]
+      }
+    }
+  ]
+}
