@@ -43,6 +43,12 @@ Every app listed here has been tried on a real Calyxz machine first. An app that
   - `helpers`, up to four ready-made images beside it, like a database
   - `follow`, `releases` or `every_build`
 
+A setting written as `{{random}}` gets a fresh secret on each machine when the app is installed. `{{random:NAME}}` is the same secret wherever it appears in one install, so an app and its database can share a password.
+
+## Where entries come from
+
+Some entries started as drafts from apps in Umbrel's app store, using the converter in Calyxz OS (`tools/umbrel-draft.py`). Umbrel's app repository has no licence, so only technical facts are taken from it: images, ports, folders and settings. Every word here is our own, and no picture comes from Umbrel.
+
 ## Credits
 
-The Jellyfin logo belongs to the Jellyfin project and is used here to name their app.
+Each logo belongs to its app's project and is used here only to name their app. They were taken from the projects' own websites or repositories: Jellyfin, Navidrome, Audiobookshelf, Uptime Kuma, Homebox, Mealie, Memos, FreshRSS, Excalidraw and IT-Tools.

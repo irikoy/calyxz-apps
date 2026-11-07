@@ -24,6 +24,182 @@
           { "from": "memory", "to": "/logs", "size_mb": 64 }
         ]
       }
+    },
+    {
+      "id": "navidrome",
+      "name": "Navidrome",
+      "tagline": "Your music, played anywhere.",
+      "description": "Navidrome turns the music in your media folder into your own streaming service, in a browser or in any app that speaks Subsonic. It only reads your media, never changes it. The first person to open it makes the admin account.",
+      "category": "media",
+      "icon": "music",
+      "logo": "logos/navidrome.png",
+      "website": "https://www.navidrome.org",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 256 }],
+      "form": {
+        "source": "deluan/navidrome:0.64.2",
+        "port": 4533,
+        "app_port": 4533,
+        "reachable": true,
+        "settings": { "ND_MUSICFOLDER": "/music" },
+        "folders": [
+          { "from": "data", "to": "/data" },
+          { "from": "/srv/media", "to": "/music", "read_only": true }
+        ]
+      }
+    },
+    {
+      "id": "audiobookshelf",
+      "name": "Audiobookshelf",
+      "tagline": "Audiobooks and podcasts, with your place kept.",
+      "description": "Audiobookshelf plays the audiobooks in your media folder and keeps up with podcasts, remembering where everyone left off, in a browser or its phone apps. It only reads your media. Podcasts it downloads go in its own folder. The first person to open it makes the main account.",
+      "category": "media",
+      "icon": "book",
+      "logo": "logos/audiobookshelf.png",
+      "website": "https://www.audiobookshelf.org",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 256 }],
+      "form": {
+        "source": "ghcr.io/advplyr/audiobookshelf:2.37.2",
+        "port": 13378,
+        "app_port": 80,
+        "reachable": true,
+        "settings": { "CONFIG_PATH": "/config", "METADATA_PATH": "/metadata" },
+        "folders": [
+          { "from": "config", "to": "/config" },
+          { "from": "metadata", "to": "/metadata" },
+          { "from": "/srv/media", "to": "/audiobooks", "read_only": true },
+          { "from": "podcasts", "to": "/podcasts" }
+        ]
+      }
+    },
+    {
+      "id": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "tagline": "Knows when your sites and services go down.",
+      "description": "Uptime Kuma checks websites, servers and services as often as every 20 seconds, keeps a history, and can tell you on Discord, Telegram, email and many more when something stops answering. It can also show a public status page. The first visit sets up its admin account.",
+      "category": "network",
+      "icon": "chart",
+      "logo": "logos/uptime-kuma.png",
+      "website": "https://uptime.kuma.pet",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 256 }],
+      "form": {
+        "source": "louislam/uptime-kuma:2.5.9",
+        "port": 8385,
+        "app_port": 3001,
+        "reachable": true,
+        "folders": [{ "from": "uptime-kuma", "to": "/app/data" }]
+      }
+    },
+    {
+      "id": "homebox",
+      "name": "Homebox",
+      "tagline": "Everything you own, and where you put it.",
+      "description": "Homebox keeps a list of your things, where they are, what they cost and when their warranties end, with labels, photos and receipts. Make an account on the first visit. Its secret key is made fresh for this machine when it's installed.",
+      "category": "home",
+      "icon": "home",
+      "logo": "logos/homebox.png",
+      "website": "https://homebox.software",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "form": {
+        "source": "ghcr.io/sysadminsmedia/homebox:0.27.1",
+        "port": 7745,
+        "app_port": 7745,
+        "reachable": true,
+        "settings": { "HBOX_AUTH_API_KEY_PEPPER": "{{random}}", "HBOX_OPTIONS_ALLOW_REGISTRATION": "true" },
+        "folders": [{ "from": "data", "to": "/data" }]
+      }
+    },
+    {
+      "id": "mealie",
+      "name": "Mealie",
+      "tagline": "Recipes, meal plans and shopping lists.",
+      "description": "Mealie keeps your recipes in one place, can pull them from a website's address, and plans meals and shopping lists from them. Sign in the first time with the starting account in Mealie's own guide, then change its email and password straight away.",
+      "category": "home",
+      "icon": "book",
+      "logo": "logos/mealie.png",
+      "website": "https://mealie.io",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 768 }],
+      "form": {
+        "source": "ghcr.io/mealie-recipes/mealie:v3.30.0",
+        "port": 9925,
+        "app_port": 9000,
+        "reachable": true,
+        "settings": { "ALLOW_SIGNUP": "true", "MAX_WORKERS": "1", "WEB_CONCURRENCY": "1" },
+        "folders": [{ "from": "data", "to": "/app/data" }]
+      }
+    },
+    {
+      "id": "memos",
+      "name": "Memos",
+      "tagline": "Quick notes, like a timeline only you read.",
+      "description": "Memos is a place to jot things down fast, in Markdown, with tags and search, and come back to them later. The first account made becomes its admin.",
+      "category": "productivity",
+      "icon": "message",
+      "logo": "logos/memos.png",
+      "website": "https://usememos.com",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "form": {
+        "source": "neosmemo/memos:26.11.0",
+        "port": 5230,
+        "app_port": 5230,
+        "reachable": true,
+        "settings": { "MEMOS_MODE": "prod", "MEMOS_PORT": "5230" },
+        "folders": [{ "from": "data", "to": "/var/opt/memos" }]
+      }
+    },
+    {
+      "id": "freshrss",
+      "name": "FreshRSS",
+      "tagline": "The sites you follow, in one place.",
+      "description": "FreshRSS gathers the newest posts from the websites and blogs you follow, so you read them in one place, without ads or a feed deciding for you. A short setup on the first visit makes your account.",
+      "category": "productivity",
+      "icon": "globe",
+      "logo": "logos/freshrss.png",
+      "website": "https://freshrss.org",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "form": {
+        "source": "linuxserver/freshrss:1.30.4",
+        "port": 3432,
+        "app_port": 80,
+        "reachable": true,
+        "settings": { "PUID": "1000", "PGID": "1000" },
+        "folders": [{ "from": "data", "to": "/config" }]
+      }
+    },
+    {
+      "id": "excalidraw",
+      "name": "Excalidraw",
+      "tagline": "A whiteboard for sketches that look hand-drawn.",
+      "description": "Excalidraw is a whiteboard for quick diagrams and sketches with a hand-drawn look. This one keeps your drawings in its own folder, so they're still there next time. No account needed.",
+      "category": "productivity",
+      "icon": "image",
+      "logo": "logos/excalidraw.png",
+      "website": "https://excalidraw.com",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "form": {
+        "source": "ghcr.io/ozencb/excalidraw-persist:0.18.0-persist.7",
+        "port": 4422,
+        "app_port": 80,
+        "reachable": true,
+        "settings": { "PORT": "4000", "NODE_ENV": "production", "DB_PATH": "/app/data/database.sqlite" },
+        "folders": [{ "from": "data", "to": "/app/data" }]
+      }
+    },
+    {
+      "id": "it-tools",
+      "name": "IT-Tools",
+      "tagline": "Handy tools for developers, in one page.",
+      "description": "IT-Tools gathers dozens of small tools in one place: converting between formats, making passwords and QR codes, decoding tokens, and more. Everything runs in your browser, and nothing is kept. No account needed.",
+      "category": "developer",
+      "icon": "code",
+      "logo": "logos/ittools.png",
+      "website": "https://it-tools.tech",
+      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 64 }],
+      "form": {
+        "source": "corentinth/it-tools:2024.10.22-7ca5933",
+        "port": 8786,
+        "app_port": 80,
+        "reachable": true
+      }
     }
   ]
 }
