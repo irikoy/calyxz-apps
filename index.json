@@ -437,7 +437,7 @@
       "id": "jackett",
       "name": "Jackett",
       "tagline": "Lets your other apps search torrent sites.",
-      "description": "Jackett speaks to many torrent sites in one common way, so apps like qBittorrent can search them all at once. Add the sites you use in its page. On its own it downloads nothing. It can go through your VPN too, with \"A VPN for everything it does\" in its form.",
+      "description": "Jackett speaks to many torrent sites in one common way, so apps like qBittorrent can search them all at once. Add the sites you use in its page. On its own it downloads nothing. It comes with FlareSolverr, which gets past the \"checking your browser\" pages some sites put up: in Jackett's settings its address is http://flaresolverr:8191. It can go through your VPN too, with \"A VPN for everything it does\" in its form.",
       "category": "network",
       "icon": "globe",
       "logo": "logos/jackett.png",
@@ -450,7 +450,7 @@
           ]
         },
         {
-          "memory_mb": 256
+          "memory_mb": 1024
         }
       ],
       "form": {
@@ -467,6 +467,15 @@
           {
             "from": "config",
             "to": "/config"
+          }
+        ],
+        "helpers": [
+          {
+            "name": "flaresolverr",
+            "source": "ghcr.io/flaresolverr/flaresolverr:v3.5.2",
+            "settings": {
+              "LOG_LEVEL": "info"
+            }
           }
         ]
       }
