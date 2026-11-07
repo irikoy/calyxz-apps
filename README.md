@@ -51,4 +51,4 @@ Some entries started as drafts from apps in Umbrel's app store, using the conver
 
 ## Credits
 
-Each logo belongs to its app's project and is used here only to name their app. They were taken from the projects' own websites or repositories: Jellyfin, Navidrome, Audiobookshelf, Uptime Kuma, Homebox, Mealie, Memos, FreshRSS, Excalidraw and IT-Tools.
+Each logo belongs to its app's project and is used here only to name their app. They were taken from the projects' own websites or repositories: Jellyfin, Navidrome, Audiobookshelf, Uptime Kuma, Homebox, Mealie, Memos, FreshRSS, Excalidraw, IT-Tools, qBittorrent, Jackett and Stremio.

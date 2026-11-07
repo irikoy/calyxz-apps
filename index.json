@@ -10,18 +10,45 @@
       "icon": "film",
       "logo": "logos/jellyfin.png",
       "website": "https://jellyfin.org",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 1536 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 1536
+        }
+      ],
       "form": {
         "source": "jellyfin/jellyfin",
         "port": 8096,
         "app_port": 8096,
         "reachable": true,
-        "settings": { "JELLYFIN_LOG_DIR": "/logs" },
+        "settings": {
+          "JELLYFIN_LOG_DIR": "/logs"
+        },
         "folders": [
-          { "from": "config", "to": "/config" },
-          { "from": "/srv/media", "to": "/media", "read_only": true },
-          { "from": "memory", "to": "/cache", "size_mb": 2200 },
-          { "from": "memory", "to": "/logs", "size_mb": 64 }
+          {
+            "from": "config",
+            "to": "/config"
+          },
+          {
+            "from": "/srv/media",
+            "to": "/media",
+            "read_only": true
+          },
+          {
+            "from": "memory",
+            "to": "/cache",
+            "size_mb": 2200
+          },
+          {
+            "from": "memory",
+            "to": "/logs",
+            "size_mb": 64
+          }
         ]
       }
     },
@@ -34,16 +61,35 @@
       "icon": "music",
       "logo": "logos/navidrome.png",
       "website": "https://www.navidrome.org",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 256 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 256
+        }
+      ],
       "form": {
         "source": "deluan/navidrome:0.64.2",
         "port": 4533,
         "app_port": 4533,
         "reachable": true,
-        "settings": { "ND_MUSICFOLDER": "/music" },
+        "settings": {
+          "ND_MUSICFOLDER": "/music"
+        },
         "folders": [
-          { "from": "data", "to": "/data" },
-          { "from": "/srv/media", "to": "/music", "read_only": true }
+          {
+            "from": "data",
+            "to": "/data"
+          },
+          {
+            "from": "/srv/media",
+            "to": "/music",
+            "read_only": true
+          }
         ]
       }
     },
@@ -56,18 +102,44 @@
       "icon": "book",
       "logo": "logos/audiobookshelf.png",
       "website": "https://www.audiobookshelf.org",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 256 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 256
+        }
+      ],
       "form": {
         "source": "ghcr.io/advplyr/audiobookshelf:2.37.2",
         "port": 13378,
         "app_port": 80,
         "reachable": true,
-        "settings": { "CONFIG_PATH": "/config", "METADATA_PATH": "/metadata" },
+        "settings": {
+          "CONFIG_PATH": "/config",
+          "METADATA_PATH": "/metadata"
+        },
         "folders": [
-          { "from": "config", "to": "/config" },
-          { "from": "metadata", "to": "/metadata" },
-          { "from": "/srv/media", "to": "/audiobooks", "read_only": true },
-          { "from": "podcasts", "to": "/podcasts" }
+          {
+            "from": "config",
+            "to": "/config"
+          },
+          {
+            "from": "metadata",
+            "to": "/metadata"
+          },
+          {
+            "from": "/srv/media",
+            "to": "/audiobooks",
+            "read_only": true
+          },
+          {
+            "from": "podcasts",
+            "to": "/podcasts"
+          }
         ]
       }
     },
@@ -80,13 +152,28 @@
       "icon": "chart",
       "logo": "logos/uptime-kuma.png",
       "website": "https://uptime.kuma.pet",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 256 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 256
+        }
+      ],
       "form": {
         "source": "louislam/uptime-kuma:2.5.9",
         "port": 8385,
         "app_port": 3001,
         "reachable": true,
-        "folders": [{ "from": "uptime-kuma", "to": "/app/data" }]
+        "folders": [
+          {
+            "from": "uptime-kuma",
+            "to": "/app/data"
+          }
+        ]
       }
     },
     {
@@ -98,14 +185,32 @@
       "icon": "home",
       "logo": "logos/homebox.png",
       "website": "https://homebox.software",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 128
+        }
+      ],
       "form": {
         "source": "ghcr.io/sysadminsmedia/homebox:0.27.1",
         "port": 7745,
         "app_port": 7745,
         "reachable": true,
-        "settings": { "HBOX_AUTH_API_KEY_PEPPER": "{{random}}", "HBOX_OPTIONS_ALLOW_REGISTRATION": "true" },
-        "folders": [{ "from": "data", "to": "/data" }]
+        "settings": {
+          "HBOX_AUTH_API_KEY_PEPPER": "{{random}}",
+          "HBOX_OPTIONS_ALLOW_REGISTRATION": "true"
+        },
+        "folders": [
+          {
+            "from": "data",
+            "to": "/data"
+          }
+        ]
       }
     },
     {
@@ -117,14 +222,33 @@
       "icon": "book",
       "logo": "logos/mealie.png",
       "website": "https://mealie.io",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 768 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 768
+        }
+      ],
       "form": {
         "source": "ghcr.io/mealie-recipes/mealie:v3.30.0",
         "port": 9925,
         "app_port": 9000,
         "reachable": true,
-        "settings": { "ALLOW_SIGNUP": "true", "MAX_WORKERS": "1", "WEB_CONCURRENCY": "1" },
-        "folders": [{ "from": "data", "to": "/app/data" }]
+        "settings": {
+          "ALLOW_SIGNUP": "true",
+          "MAX_WORKERS": "1",
+          "WEB_CONCURRENCY": "1"
+        },
+        "folders": [
+          {
+            "from": "data",
+            "to": "/app/data"
+          }
+        ]
       }
     },
     {
@@ -136,14 +260,32 @@
       "icon": "message",
       "logo": "logos/memos.png",
       "website": "https://usememos.com",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 128
+        }
+      ],
       "form": {
         "source": "neosmemo/memos:26.11.0",
         "port": 5230,
         "app_port": 5230,
         "reachable": true,
-        "settings": { "MEMOS_MODE": "prod", "MEMOS_PORT": "5230" },
-        "folders": [{ "from": "data", "to": "/var/opt/memos" }]
+        "settings": {
+          "MEMOS_MODE": "prod",
+          "MEMOS_PORT": "5230"
+        },
+        "folders": [
+          {
+            "from": "data",
+            "to": "/var/opt/memos"
+          }
+        ]
       }
     },
     {
@@ -155,14 +297,32 @@
       "icon": "globe",
       "logo": "logos/freshrss.png",
       "website": "https://freshrss.org",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 128
+        }
+      ],
       "form": {
         "source": "linuxserver/freshrss:1.30.4",
         "port": 3432,
         "app_port": 80,
         "reachable": true,
-        "settings": { "PUID": "1000", "PGID": "1000" },
-        "folders": [{ "from": "data", "to": "/config" }]
+        "settings": {
+          "PUID": "1000",
+          "PGID": "1000"
+        },
+        "folders": [
+          {
+            "from": "data",
+            "to": "/config"
+          }
+        ]
       }
     },
     {
@@ -174,14 +334,33 @@
       "icon": "image",
       "logo": "logos/excalidraw.png",
       "website": "https://excalidraw.com",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 128 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 128
+        }
+      ],
       "form": {
         "source": "ghcr.io/ozencb/excalidraw-persist:0.18.0-persist.7",
         "port": 4422,
         "app_port": 80,
         "reachable": true,
-        "settings": { "PORT": "4000", "NODE_ENV": "production", "DB_PATH": "/app/data/database.sqlite" },
-        "folders": [{ "from": "data", "to": "/app/data" }]
+        "settings": {
+          "PORT": "4000",
+          "NODE_ENV": "production",
+          "DB_PATH": "/app/data/database.sqlite"
+        },
+        "folders": [
+          {
+            "from": "data",
+            "to": "/app/data"
+          }
+        ]
       }
     },
     {
@@ -193,12 +372,136 @@
       "icon": "code",
       "logo": "logos/ittools.png",
       "website": "https://it-tools.tech",
-      "needs": [{ "arch": ["arm64", "amd64"] }, { "memory_mb": 64 }],
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 64
+        }
+      ],
       "form": {
         "source": "corentinth/it-tools:2024.10.22-7ca5933",
         "port": 8786,
         "app_port": 80,
         "reachable": true
+      }
+    },
+    {
+      "id": "qbittorrent",
+      "name": "qBittorrent",
+      "tagline": "Downloads torrents, from a web page.",
+      "description": "qBittorrent downloads torrents into the downloads folder in your media, where Jellyfin and the others can find them. It can search through Jackett when that's installed too. To keep your downloads private, tick \"A VPN for everything it does\" in its form and add your NordVPN service sign-in. Its first password is printed in its Logs. Downloading writes to the disk a lot, so a plugged-in disk is kinder than the SD card.",
+      "category": "files",
+      "icon": "cloud",
+      "logo": "logos/qbittorrent.png",
+      "website": "https://www.qbittorrent.org",
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 256
+        }
+      ],
+      "form": {
+        "source": "linuxserver/qbittorrent:5.3.0",
+        "port": 8090,
+        "app_port": 8090,
+        "reachable": true,
+        "settings": {
+          "PUID": "1000",
+          "PGID": "1000",
+          "WEBUI_PORT": "8090",
+          "TORRENTING_PORT": "6881"
+        },
+        "folders": [
+          {
+            "from": "config",
+            "to": "/config"
+          },
+          {
+            "from": "/srv/media/downloads",
+            "to": "/downloads"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jackett",
+      "name": "Jackett",
+      "tagline": "Lets your other apps search torrent sites.",
+      "description": "Jackett speaks to many torrent sites in one common way, so apps like qBittorrent can search them all at once. Add the sites you use in its page. On its own it downloads nothing. It can go through your VPN too, with \"A VPN for everything it does\" in its form.",
+      "category": "network",
+      "icon": "globe",
+      "logo": "logos/jackett.png",
+      "website": "https://github.com/Jackett/Jackett",
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 256
+        }
+      ],
+      "form": {
+        "source": "linuxserver/jackett:0.24.3025",
+        "port": 9117,
+        "app_port": 9117,
+        "reachable": true,
+        "settings": {
+          "PUID": "1000",
+          "PGID": "1000",
+          "AUTO_UPDATE": "false"
+        },
+        "folders": [
+          {
+            "from": "config",
+            "to": "/config"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stremio",
+      "name": "Stremio server",
+      "tagline": "The streaming part of Stremio, on your own machine.",
+      "description": "Stremio is an app for your TV, phone or computer that plays films and shows through add-ons. This is its server, which does the streaming work for the app. In the Stremio app, choose this machine's address with port 11470 as its streaming server.",
+      "category": "media",
+      "icon": "film",
+      "logo": "logos/stremio.png",
+      "website": "https://www.stremio.com",
+      "needs": [
+        {
+          "arch": [
+            "arm64",
+            "amd64"
+          ]
+        },
+        {
+          "memory_mb": 256
+        }
+      ],
+      "form": {
+        "source": "stremio/server:v4.22.5",
+        "port": 11470,
+        "app_port": 11470,
+        "reachable": true,
+        "folders": [
+          {
+            "from": "data",
+            "to": "/root/.stremio-server"
+          }
+        ]
       }
     }
   ]
