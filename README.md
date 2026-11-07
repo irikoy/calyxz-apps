@@ -39,7 +39,7 @@ Every app listed here has been tried on a real Calyxz machine first. An app that
   - `"graphics"`
 - `form`: the install form without its name.
   - `source`, `port`, `app_port`, `reachable`, `settings`, `folders`
-  - `allow`, from `graphics`, `usb` and `home_network`
+  - `allow`, from `graphics`, `usb` and `home_network`. A VPN (`vpn`) needs the owner's own sign-in, so entries leave it for them to tick
   - `helpers`, up to four ready-made images beside it, like a database
   - `follow`, `releases` or `every_build`
 
